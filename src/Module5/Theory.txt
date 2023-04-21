@@ -1,0 +1,56 @@
+---------------------------JDBC--------------------------
+
+
+JDBC (Java Database Connectivity) drivers are software components that allow Java applications 
+to communicate with databases using the JDBC API. There are four types of JDBC drivers:
+
+
+JDBC-ODBC Bridge Driver: This driver converts JDBC calls into ODBC calls, which are then executed 
+by the ODBC driver. This type of driver is no longer recommended for use, as it has been deprecated since Java 8.
+
+Native-API Driver: This driver uses the client-side libraries of the database to communicate with it.
+It provides better performance than the JDBC-ODBC bridge driver, but is not platform-independent.
+
+Network Protocol Driver: This driver uses a middleware server to communicate with the database over the network. 
+It provides better performance than the native-API driver, and is also platform-independent.
+
+Thin Driver: This driver is a pure Java implementation that communicates directly with the database 
+using a network protocol. It provides the best performance and is also platform-independent.
+
+
+
+here are the step-by-step instructions to establish a JDBC connection in Java:
+
+1) import the package (java.sql.*)
+2)  a. load the driver (com.mysql.jdbc.driver) for mysql db // different for each db
+        // import library from net - jar file (mysql-connector) and load it 
+    b. register the driver ( Class.forName(“com.mysql.jdbc.driver”))
+
+done using the Class.forName() method, which takes the name of the driver class as an argument.
+
+3)establish and open the connection to db
+
+    The next step is to set up the connection URL, which is a string that specifies the location 
+    of the database and any additional properties that are required to establish the connection.
+
+    String url = "jdbc:mysql://localhost:3307/mydatabase";
+    where "mydatabase" is the name of the database you want to connect to.
+
+    To open a connection to the database, use the DriverManager.getConnection() method, which takes 
+    the connection URL, a username, and a password as arguments.
+
+4)create the statement  -> 3 types -- statement, prepare statement, callable statement
+
+5)execute the query  
+
+    Once you have a connection to the database, you can execute SQL statements using the Connection.
+    createStatement() method, which returns a Statement object.
+
+6)process results
+
+    Finally, you can process the results of the SQL statement by iterating over the ResultSet object 
+    returned by the Statement.executeQuery() method.
+
+7)close the connection
+    Statement.close() 
+    Connection.close() 
