@@ -1,0 +1,27 @@
+thread -> unit of process
+word file--process
+    spell check - sub process -- thread
+
+3 application of thread / uses 
+    1) use complete power of CPU 
+    2) asynchronous task 
+    3) web application -- servlets (diffrent thread for many users)
+    4) gaming (same time many things are happeingin)
+
+How to achieve thread--
+    2 ways 
+
+    Thread t1 = new Thread();
+    t1.run();
+
+    1. by extending thread class
+    class cName extends Thread{
+
+    }
+    
+    or 
+    2. using runnable interface 
+        when to use: when a class tries to extends other class as well  but here multiple inheritance not allowed in java
+    class cName extends A implements Runnable {
+
+    }
